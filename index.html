@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert'eau Plante</title>
+
+    <!-- Lien vers le CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Alert'eau Plante</h1>
+        <form id="plantForm" action="/save" method="post">
+             <!-- Température -->
+            <label>Température idéale (°C)</label>
+            <div class="range-line">
+                <input type="number" name="temp_min" placeholder="Min : 20" required>
+                <input type="number" name="temp_max" placeholder="Max : 25" required>
+            </div>
+
+             <!-- Humidité -->
+            <label>Humidité idéale (%)</label>
+            <div class="range-line">
+                <input type="number" name="hum_min" placeholder="Min : 50" required>
+                <input type="number" name="hum_max" placeholder="Max : 70" required>
+            </div>
+
+            <!-- Luminosité -->
+            <label for="luminosity">Luminosité</label>
+            <select id="luminosity" name="luminosity" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="Faible">Faible</option>
+                <option value="Moyenne">Moyenne</option>
+                <option value="Forte">Forte</option>
+            </select>
+
+            <button type="submit" class="primary-btn">Enregistrer les paramètres</button>
+        </form>
+
+        <button class="secondary-btn" onclick="window.location.href='/data'">Consulter les données</button>
+
+        <p class="note">Ces paramètres serviront à surveiller la plante avec votre Raspberry Pi.</p>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
